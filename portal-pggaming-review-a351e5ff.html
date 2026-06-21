@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>pg游戏 · 资料索引 · 信息梳理</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #f2f4f6;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      line-height: 1.65;
+      color: #1e2a3a;
+      padding: 2rem 1rem;
+    }
+
+    .wrapper {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    /* 卡片体系：浅灰背景、细边框、柔和阴影 */
+    .card {
+      background-color: #ffffff;
+      border: 1px solid #e2e7ed;
+      border-radius: 14px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+      padding: 2rem 2rem 2.2rem;
+      margin-bottom: 2rem;
+      transition: box-shadow 0.2s ease;
+    }
+
+    .card:hover {
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.06);
+    }
+
+    /* hero 区 —— 开场短句，叙事式 */
+    .hero {
+      text-align: center;
+      padding: 2.8rem 1.5rem 2.2rem;
+      background: #fafbfc;
+      border: 1px solid #e2e7ed;
+      border-radius: 14px;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+    }
+
+    .hero h1 {
+      font-size: 2.2rem;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      color: #142433;
+      margin-bottom: 0.6rem;
+    }
+
+    .hero .sub {
+      font-size: 1.1rem;
+      color: #4c5a6b;
+      max-width: 600px;
+      margin: 0 auto;
+      font-weight: 380;
+    }
+
+    /* 标题层级 */
+    h2 {
+      font-size: 1.5rem;
+      font-weight: 500;
+      letter-spacing: -0.3px;
+      color: #1b2a3c;
+      margin-bottom: 1.2rem;
+      border-bottom: 2px solid #eaeef3;
+      padding-bottom: 0.45rem;
+      display: inline-block;
+    }
+
+    h3 {
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: #20303f;
+      margin-bottom: 0.3rem;
+    }
+
+    /* 承接段落 / 普通文本 */
+    p {
+      margin-bottom: 1rem;
+      font-size: 1rem;
+      color: #2a3b4e;
+    }
+
+    p.lead {
+      font-size: 1.07rem;
+      color: #223344;
+      font-weight: 400;
+    }
+
+    a {
+      color: #1e5e8c;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.1s;
+    }
+
+    a:hover {
+      border-bottom-color: #1e5e8c;
+    }
+
+    /* 特点列表 —— 简洁、信息密度高 */
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1.2rem;
+      margin: 1.5rem 0 0.5rem;
+    }
+
+    .feature-item {
+      background: #f8faff;
+      border: 1px solid #e7ecf2;
+      border-radius: 12px;
+      padding: 1.1rem 1rem;
+      transition: background 0.15s;
+    }
+
+    .feature-item:hover {
+      background: #f2f8fe;
+    }
+
+    .feature-item strong {
+      display: block;
+      font-weight: 500;
+      font-size: 1rem;
+      color: #1a2e41;
+      margin-bottom: 0.15rem;
+    }
+
+    .feature-item span {
+      font-size: 0.9rem;
+      color: #435769;
+      line-height: 1.4;
+    }
+
+    /* 温和结尾 —— 卡片内嵌 FAQ 摘要 */
+    .faq-mini {
+      margin-top: 0.8rem;
+    }
+
+    .faq-mini details {
+      margin-bottom: 0.6rem;
+      border-bottom: 1px solid #ecf0f4;
+      padding-bottom: 0.6rem;
+    }
+
+    .faq-mini summary {
+      font-weight: 450;
+      cursor: pointer;
+      color: #1d3448;
+      padding: 0.2rem 0;
+      font-size: 1rem;
+    }
+
+    .faq-mini details p {
+      margin: 0.5rem 0 0.2rem;
+      padding-left: 0.3rem;
+      color: #3c5065;
+      font-size: 0.95rem;
+    }
+
+    .footer-note {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #5b6f82;
+      margin-top: 1.8rem;
+      padding: 1.2rem 0 0.3rem;
+      border-top: 1px solid #dce2ea;
+    }
+
+    /* 响应式微调 */
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 1.7rem; }
+      .card { padding: 1.5rem; }
+      .feature-grid { grid-template-columns: 1fr; }
+      .wrapper { padding: 0.2rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+
+  <!-- 开场短句 (hero) -->
+  <div class="hero">
+    <h1>信息整理 · 索引笔记</h1>
+    <div class="sub">从资料归档与内容梳理的视角，重新理解 pg游戏 的产品结构与内容脉络。</div>
+  </div>
+
+  <!-- 承接段落：叙事式引入  -->
+  <div class="card">
+    <p class="lead">任何领域的信息积累，都离不开对原始素材的系统化梳理。当我们在讨论 <a href="https://portal-pggaming.com">pg游戏</a> 时，首先面对的是一个由大量游戏内容、机制说明与交互体验构成的资料集合。如何从这些素材中提取出清晰的结构，是信息整理工作的起点。</p>
+    <p>这份介绍页尝试以最直接的方式——归档、分类与特征归纳——来呈现 pg游戏 相关内容。不添加多余渲染，也不夸大功能的独特性，仅将已经存在的信息重组为可检索的条目。</p>
+  </div>
+
+  <!-- 特点列表：内容特征 + 信息索引角度 -->
+  <div class="card">
+    <h2>内容特征摘要</h2>
+    <div class="feature-grid">
+      <div class="feature-item">
+        <strong>类型分布</strong>
+        <span>涵盖多种主题与玩法框架，每套内容有独立规则说明。</span>
+      </div>
+      <div class="feature-item">
+        <strong>视觉与叙事</strong>
+        <span>不同作品采用差异化的美术风格，部分包含背景设定与角色线索。</span>
+      </div>
+      <div class="feature-item">
+        <strong>交互流程</strong>
+        <span>操作逻辑以明确反馈为主，具备基本的回合或实时交互模式。</span>
+      </div>
+      <div class="feature-item">
+        <strong>资料注释</strong>
+        <span>各条目通常附带简要的功能描述，便于索引与横向比较。</span>
+      </div>
+      <div class="feature-item">
+        <strong>集成环境</strong>
+        <span>内容统一部署于 <a href="https://portal-pggaming.com">pg游戏</a> 信息层，可跨条目参考。</span>
+      </div>
+      <div class="feature-item">
+        <strong>更新节奏</strong>
+        <span>素材库保持定期补充，新条目遵循已有的归档格式。</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 温和承接 + 场景化描述  -->
+  <div class="card">
+    <h2>常见使用场景</h2>
+    <p><strong>检索对比</strong> — 当需要对不同作品的功能细节进行比较时，pg游戏 的条目结构提供了统一的字段描述，减少信息对齐成本。</p>
+    <p><strong>内容研究</strong> — 对于关注游戏机制、界面模式或题材演变的整理者，该索引可作为原始样本库，辅助横向分析。</p>
+    <p><strong>快速查阅</strong> — 每个条目标注了主要特征与限制说明，适合需要快速了解概貌的阅读场景，无需深度浏览全部资料。</p>
+  </div>
+
+  <!-- FAQ 摘要 + 温和结尾（卡片形式） -->
+  <div class="card">
+    <h2>常见疑问 · 简要说明</h2>
+    <div class="faq-mini">
+      <details>
+        <summary>pg游戏 包含多少条内容索引？</summary>
+        <p>当前可索引的作品数量处于动态补充中，所有条目均可在 <a href="https://portal-pggaming.com">pg游戏</a> 页面内直接查阅。</p>
+      </details>
+      <details>
+        <summary>信息索引是否有分类标签？</summary>
+        <p>部分条目依据主题与互动模式进行了分组标记，但未采用严格的多级分类，保持扁平化以便快速浏览。</p>
+      </details>
+      <details>
+        <summary>资料更新频率如何？</summary>
+        <p>基于内容积累周期，通常每月有一次集中补充，新条目会沿用现有描述格式。</p>
+      </details>
+    </div>
+    <!-- 温和收束 -->
+    <p style="margin-top:1rem; font-style:normal; color:#395066;">上述摘要仅为 pg游戏 信息结构的一部分。若需查阅完整条目，可直接浏览原始索引页。</p>
+  </div>
+
+  <!-- 底部安静引用 -->
+  <div class="footer-note">
+    <span>资料整理 · 不做过度诠释 ｜ 基于 <a href="https://portal-pggaming.com">pg游戏</a> 内容体系</span>
+  </div>
+
+</div>
+</body>
+</html>
