@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
+    <title>九游娱乐 · 移动端介绍</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', 'Noto Sans', sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(145deg, #fde4c2 0%, #fcd5a5 20%, #fbc78f 45%, #f6b474 75%, #f0a05a 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1.2rem;
+        }
+
+        /* 主卡片容器 */
+        .main-card {
+            max-width: 1000px;
+            width: 100%;
+            background: rgba(255, 251, 245, 0.88);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            border-radius: 48px 48px 40px 40px;
+            box-shadow: 0 20px 40px -12px rgba(140, 70, 20, 0.25), 0 8px 24px rgba(255, 215, 160, 0.3);
+            padding: 2.5rem 2rem 3rem;
+            transition: box-shadow 0.2s;
+            border: 1px solid rgba(255, 235, 210, 0.5);
+        }
+
+        /* HERO 区 */
+        .hero {
+            text-align: center;
+            margin-bottom: 2.8rem;
+        }
+
+        .hero__logo {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: #fbe7d3;
+            padding: 0.5rem 1.8rem;
+            border-radius: 60px;
+            box-shadow: inset 0 0 0 1px rgba(255, 215, 170, 0.4);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero__logo span {
+            font-size: 1.5rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            color: #6b3f1f;
+        }
+
+        .hero__title {
+            font-size: clamp(2rem, 6vw, 3.4rem);
+            font-weight: 600;
+            color: #4d2e17;
+            line-height: 1.2;
+            margin-bottom: 0.6rem;
+            letter-spacing: -0.01em;
+        }
+
+        .hero__sub {
+            font-size: 1.1rem;
+            color: #734c2c;
+            background: rgba(245, 210, 175, 0.3);
+            display: inline-block;
+            padding: 0.25rem 1.6rem;
+            border-radius: 40px;
+            backdrop-filter: blur(2px);
+            margin-top: 0.2rem;
+            font-weight: 400;
+            border: 1px solid #ecc6a2;
+        }
+
+        /* 优势区 (三列卡片) */
+        .advantages {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.8rem;
+            margin: 2.8rem 0 2.2rem;
+            justify-content: center;
+        }
+
+        .advantage-item {
+            flex: 1 1 180px;
+            min-width: 150px;
+            background: white;
+            border-radius: 28px;
+            padding: 1.5rem 1.2rem 1.8rem;
+            box-shadow: 0 8px 18px -6px rgba(150, 85, 25, 0.12);
+            border: 1px solid #f7e3d0;
+            transition: transform 0.15s, box-shadow 0.15s;
+            text-align: center;
+        }
+
+        .advantage-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 14px 24px -8px rgba(130, 70, 20, 0.18);
+            border-color: #efcfb2;
+        }
+
+        .advantage-icon {
+            font-size: 2.4rem;
+            line-height: 1;
+            margin-bottom: 0.6rem;
+            display: block;
+            color: #b26d3c;
+        }
+
+        .advantage-item h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #3f2a18;
+            margin-bottom: 0.3rem;
+        }
+
+        .advantage-item p {
+            font-size: 0.9rem;
+            color: #5d412b;
+            line-height: 1.5;
+        }
+
+        /* 说明区 (一段叙述) */
+        .explain {
+            background: white;
+            border-radius: 32px;
+            padding: 1.8rem 2rem 2.2rem;
+            margin: 2.2rem 0 2.4rem;
+            box-shadow: 0 4px 12px rgba(210, 150, 90, 0.08);
+            border: 1px solid #f3ddc8;
+        }
+
+        .explain h2 {
+            font-size: 1.6rem;
+            font-weight: 500;
+            color: #442b18;
+            margin-bottom: 0.8rem;
+            letter-spacing: -0.3px;
+            border-left: 6px solid #d9945b;
+            padding-left: 1rem;
+        }
+
+        .explain p {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: #3c2a1b;
+            margin-bottom: 1rem;
+        }
+
+        .explain p:last-child {
+            margin-bottom: 0;
+        }
+
+        .explain a {
+            color: #a55d2b;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 2px solid #eac6a8;
+            transition: border-color 0.15s, color 0.1s;
+        }
+
+        .explain a:hover {
+            border-bottom-color: #a55d2b;
+            color: #6f3f1a;
+        }
+
+        /* FAQ 摘要 */
+        .faq-summary {
+            background: white;
+            border-radius: 32px;
+            padding: 1.5rem 2rem 1.8rem;
+            margin: 2rem 0 2rem;
+            box-shadow: 0 4px 12px rgba(200, 140, 80, 0.06);
+            border: 1px solid #f2dcc7;
+        }
+
+        .faq-summary h2 {
+            font-size: 1.4rem;
+            font-weight: 500;
+            color: #3d2817;
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .faq-summary h2:before {
+            content: "❓";
+            font-size: 1.3rem;
+            opacity: 0.7;
+        }
+
+        .faq-item {
+            margin-bottom: 0.8rem;
+            border-bottom: 1px solid #f3e0cf;
+            padding-bottom: 0.8rem;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .faq-question {
+            font-weight: 600;
+            color: #4f3321;
+            margin-bottom: 0.1rem;
+            font-size: 1rem;
+        }
+
+        .faq-answer {
+            color: #4d3627;
+            font-size: 0.92rem;
+            line-height: 1.5;
+            margin-top: 0.15rem;
+        }
+
+        .faq-answer a {
+            color: #a55d2b;
+            text-decoration: none;
+            border-bottom: 1px solid #ddb693;
+        }
+
+        .faq-answer a:hover {
+            border-bottom-color: #a55d2b;
+        }
+
+        /* 底部链接 & 脚注 */
+        .footer-links {
+            margin-top: 2.8rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem 2rem;
+            padding-top: 1.2rem;
+            border-top: 1px solid #e7cdb4;
+        }
+
+        .footer-links a {
+            color: #633f28;
+            text-decoration: none;
+            font-size: 0.95rem;
+            padding: 0.3rem 0.8rem;
+            background: rgba(255, 245, 235, 0.6);
+            border-radius: 40px;
+            border: 1px solid #e7cbb2;
+            transition: background 0.1s, border-color 0.1s;
+        }
+
+        .footer-links a:hover {
+            background: #f3dcc9;
+            border-color: #c79262;
+        }
+
+        .footer-links .main-link {
+            background: #f5d5b9;
+            border-color: #ce9b6e;
+            font-weight: 500;
+            color: #3d2414;
+        }
+
+        .footer-note {
+            text-align: center;
+            margin-top: 1.5rem;
+            font-size: 0.82rem;
+            color: #6e4c33;
+            opacity: 0.75;
+        }
+
+        /* 响应式 */
+        @media (max-width: 560px) {
+            .main-card {
+                padding: 1.8rem 1.2rem 2rem;
+                border-radius: 32px;
+            }
+            .hero__title {
+                font-size: 1.9rem;
+            }
+            .advantages {
+                gap: 1rem;
+            }
+            .advantage-item {
+                min-width: 120px;
+                padding: 1rem 0.8rem 1.2rem;
+            }
+            .explain, .faq-summary {
+                padding: 1.2rem 1.2rem 1.5rem;
+            }
+            .footer-links {
+                gap: 0.8rem 1.2rem;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .hero__sub {
+                font-size: 0.9rem;
+                padding: 0.1rem 1rem;
+            }
+            .advantage-icon {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main-card">
+        <!-- HERO 区 -->
+        <div class="hero">
+            <div class="hero__logo">
+                <span>🎲 九游</span>
+            </div>
+            <h1 class="hero__title">九游娱乐 · 移动门户</h1>
+            <div class="hero__sub">轻触即达 · 聚合体验</div>
+            <p style="margin-top: 1.2rem; color: #503b2a; max-width: 500px; margin-left: auto; margin-right: auto; line-height: 1.6; font-size: 0.98rem;">
+                一个聚合了休闲、游戏与互动内容的移动端站点，帮助你在手机上快速找到感兴趣的内容，省去反复搜索的麻烦。
+            </p>
+        </div>
+
+        <!-- 优势区 (三卡片) -->
+        <div class="advantages">
+            <div class="advantage-item">
+                <span class="advantage-icon">⚡</span>
+                <h3>即开即用</h3>
+                <p>无需安装，移动浏览器打开即可浏览，省去下载和更新步骤。</p>
+            </div>
+            <div class="advantage-item">
+                <span class="advantage-icon">🧩</span>
+                <h3>分类清晰</h3>
+                <p>热门游戏、休闲小游、资讯攻略…… 栏目划分直观，减少选择成本。</p>
+            </div>
+            <div class="advantage-item">
+                <span class="advantage-icon">🌐</span>
+                <h3>适配移动端</h3>
+                <p>页面针对手机屏幕优化，操作区域顺手，阅读体验自然。</p>
+            </div>
+        </div>
+
+        <!-- 说明区 (一段叙述) -->
+        <div class="explain">
+            <h2>关于这个站点</h2>
+            <p>
+                如果你第一次打开 <a href="https://mobileportal-jiuyou.com">九游娱乐</a>，可能会好奇它具体提供什么。简单来说，这是一个以移动端为核心的导航式内容集合站。团队将各类娱乐向资源——从策略游戏到轻量互动，从玩法介绍到社区讨论——整理成了统一的入口。不需要在多个应用之间来回跳转，也不需要记忆复杂的链接。你只要打开浏览器，进入这个页面，就能看到一组经过筛选的娱乐内容卡片和分类入口。
+            </p>
+            <p>
+                站内的内容偏向日常休闲，不涉及高门槛操作或付费引导。每个推荐都附有简短的说明，方便你快速判断是否感兴趣。另外，站点会不定期更新内容模块，保持一定的新鲜感。如果你喜欢探索不同类型的移动端娱乐，不妨把它当作一个起点。
+            </p>
+        </div>
+
+        <!-- FAQ 摘要 -->
+        <div class="faq-summary">
+            <h2>常见问题 · 摘要</h2>
+            <div class="faq-item">
+                <div class="faq-question">🔹 这个网站需要注册或登录吗？</div>
+                <div class="faq-answer">不需要。所有内容都直接可见，没有任何强制注册或付费步骤。你只需要访问 <a href="https://mobileportal-jiuyou.com">九游娱乐</a> 就可以开始使用。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">🔹 移动端和电脑端体验有区别吗？</div>
+                <div class="faq-answer">站点主要为手机浏览器设计，但电脑上也可以正常访问。部分交互按钮和排版会针对小屏做适配，大屏下内容同样可读。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">🔹 内容多久更新一次？</div>
+                <div class="faq-answer">目前没有固定周期，但运营团队会不定期添加新的娱乐模块或调整推荐位，保持站内活力。你可以偶尔回来看看有没有新变化。</div>
+            </div>
+        </div>
+
+        <!-- 底部链接 -->
+        <div class="footer-links">
+            <a href="https://mobileportal-jiuyou.com" class="main-link">九游娱乐</a>
+            <a href="#">内容分类</a>
+            <a href="#">最新动态</a>
+            <a href="#">使用提示</a>
+            <a href="#">关于本站</a>
+        </div>
+        <div class="footer-note">
+            移动端娱乐集合 · 自然呈现
+        </div>
+    </div>
+</body>
+</html>
